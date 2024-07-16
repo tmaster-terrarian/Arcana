@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "arcana",
+  "version": "${version}",
+  "name": "Arcana",
+  "description": "Just another spell casting mod",
+  "authors": [
+    "bscit"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.bscit.arcana.Arcana"
+    ],
+    "client": [
+      "dev.bscit.arcana.client.ArcanaClient"
+    ],
+    "registerManaManager": [
+      "dev.bscit.arcana.manager.ManagerRegisterer"
+    ],
+    "registerSpellManager": [
+      "dev.bscit.arcana.manager.ManagerRegisterer"
+    ]
+  },
+  "mixins": [
+    "arcana.mixins.json"
+  ],
+  "depends": {
+    "nebula": ">=6.0.1",
+    "fabricloader": ">=0.15.3",
+    "accessories": ">=1.0.0-beta.15",
+    "fabric": "*",
+    "minecraft": "1.21"
+  }
+}
