@@ -2,6 +2,7 @@ package dev.bscit.arcana.spell;
 
 import dev.louis.nebula.api.spell.Spell;
 import dev.louis.nebula.api.spell.SpellType;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;

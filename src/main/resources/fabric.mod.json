@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "arcana",
-  "version": "${version}",
+  "version": "0.1.0",
   "name": "Arcana",
   "description": "Just another spell casting mod",
   "authors": [
@@ -9,6 +9,7 @@
   ],
   "contact": {},
   "license": "MIT",
+  "icon": "assets/arcana/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
