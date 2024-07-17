@@ -85,7 +85,7 @@ public class ArcanaClient implements ClientModInitializer
                 "Mana: " + mana + "/" + maxMana,
                 10,
                 10,
-                0x0000FF,
+                0x8080FF,
                 false
             );
 
@@ -104,7 +104,7 @@ public class ArcanaClient implements ClientModInitializer
                 drawContext.drawText(
                     client.textRenderer,
                     spellType.getId().toString(),
-                    10,
+                    12,
                     y.get(),
                     0x03F6FF,
                     true

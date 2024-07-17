@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
+import dev.bscit.arcana.item.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 
 public class Arcana implements ModInitializer
@@ -15,6 +16,7 @@ public class Arcana implements ModInitializer
     public void onInitialize()
     {
         ArcanaSpells.init();
+        ItemRegistry.init();
         LOGGER.info("Arcana has been initialized.");
     }
 }
