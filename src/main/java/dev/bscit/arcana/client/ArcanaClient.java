@@ -77,13 +77,22 @@ public class ArcanaClient implements ClientModInitializer
             var manaManager = player.getManaManager();
             var spellManager = player.getSpellManager();
 
-            var mana = String.valueOf(manaManager.getMana());
-            var maxMana = String.valueOf(manaManager.getMaxMana());
+            int mana = manaManager.getMana();
+            int maxMana = manaManager.getMaxMana();
 
             drawContext.drawText(
                 client.textRenderer,
-                "Mana: " + mana + "/" + maxMana,
+                "Mana: " + (mana / 20) + "/" + (maxMana / 20),
                 10,
+                10,
+                0x8080FF,
+                false
+            );
+
+            drawContext.drawText(
+                client.textRenderer,
+                "(" + mana + "/" + maxMana + ")",
+                100,
                 10,
                 0x8080FF,
                 false

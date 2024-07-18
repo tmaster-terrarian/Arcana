@@ -18,18 +18,20 @@ public class CloudJumpSpell extends Spell
     @Override
     public void cast()
     {
-        this.getCaster().playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, 1f, 1f);
-        this.getCaster().addVelocity(0, 2, 0);
-        this.getCaster().velocityModified = true;
+        var caster = this.getCaster();
+        caster.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, 1f, 1f);
+        caster.addVelocity(0, 2, 0);
+        caster.velocityModified = true;
     }
 
     @Override
     public void tick()
     {
-        var world = this.getCaster().getWorld();
+        var caster = this.getCaster();
+        var world = caster.getWorld();
         if(!world.isClient())
         {
-            var serverPlayer = (ServerPlayerEntity)this.getCaster();
+            var serverPlayer = (ServerPlayerEntity)caster;
 
             serverPlayer.getServerWorld().spawnParticles(
                 serverPlayer,
@@ -44,7 +46,7 @@ public class CloudJumpSpell extends Spell
                 0,
                 0.1
             );
-            this.getCaster().playSound(SoundEvents.BLOCK_GLASS_HIT, 2f, -1f);
+            caster.playSound(SoundEvents.BLOCK_GLASS_HIT, 2f, -1f);
         }
     }
 
@@ -57,9 +59,10 @@ public class CloudJumpSpell extends Spell
     @Override
     public void finish()
     {
-        if(!this.getCaster().getWorld().isClient())
+        var caster = this.getCaster();
+        if(!caster.getWorld().isClient())
         {
-            var serverPlayer = (ServerPlayerEntity)this.getCaster();
+            var serverPlayer = (ServerPlayerEntity)caster;
 
             serverPlayer.playSound(SoundEvents.ENTITY_CAMEL_DASH, 2f, -1f);
             serverPlayer.getServerWorld().spawnParticles(

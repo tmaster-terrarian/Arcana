@@ -1,0 +1,6 @@
+{
+    "parent": "arcana:item/template_wrist_accessory",
+    "textures": {
+        "0": "arcana:item/band_of_starpower"
+    }
+}
