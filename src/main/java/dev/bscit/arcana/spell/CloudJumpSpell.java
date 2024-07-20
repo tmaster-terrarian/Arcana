@@ -24,7 +24,7 @@ public class CloudJumpSpell extends Spell
         {
             var serverPlayer = (ServerPlayerEntity)caster;
 
-            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, SoundCategory.PLAYERS);
+            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.ITEM_MACE_SMASH_GROUND, SoundCategory.PLAYERS);
         }
 
         caster.addVelocity(0, 2, 0);
@@ -85,7 +85,7 @@ public class CloudJumpSpell extends Spell
                 0.1
             );
 
-            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.ENTITY_CAMEL_DASH, SoundCategory.PLAYERS, 1f, 1f);
+            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.ENTITY_BREEZE_SHOOT, SoundCategory.PLAYERS, 1f, 1f);
         }
     }
 }

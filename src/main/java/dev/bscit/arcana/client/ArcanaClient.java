@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.lwjgl.glfw.GLFW;
 
-import dev.bscit.arcana.spell.SpellRegistry;
+import dev.bscit.arcana.spell.ArcanaSpells;
 
 import dev.louis.nebula.api.spell.SpellType;
 
@@ -18,7 +18,7 @@ import net.minecraft.client.option.KeyBinding;
 
 public class ArcanaClient implements ClientModInitializer
 {
-    public int spellCooldown = 0;
+    public static int spellCooldown = 0;
 
     @Override
     public void onInitializeClient()
@@ -37,10 +37,10 @@ public class ArcanaClient implements ClientModInitializer
             "key.categories.arcana"
         );
         KeyBindingHelper.registerKeyBinding(keyBind);
-        SpellKeybindManager.addSpellKeyBinding(SpellRegistry.CLOUD_JUMP, keyBind);
+        SpellKeybindManager.addSpellKeyBinding(ArcanaSpells.CLOUD_JUMP, keyBind);
     }
 
-    private void registerKeybindCallback()
+    private static void registerKeybindCallback()
     {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if(spellCooldown > 0)
@@ -66,7 +66,7 @@ public class ArcanaClient implements ClientModInitializer
         });
     }
 
-    private void registerRenderCallback()
+    private static void registerRenderCallback()
     {
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             var client = MinecraftClient.getInstance();
@@ -82,17 +82,8 @@ public class ArcanaClient implements ClientModInitializer
 
             drawContext.drawText(
                 client.textRenderer,
-                "Mana: " + (mana / 20) + "/" + (maxMana / 20),
+                "Mana: " + mana + "/" + maxMana,
                 10,
-                10,
-                0x8080FF,
-                false
-            );
-
-            drawContext.drawText(
-                client.textRenderer,
-                "(" + mana + "/" + maxMana + ")",
-                100,
                 10,
                 0x8080FF,
                 false

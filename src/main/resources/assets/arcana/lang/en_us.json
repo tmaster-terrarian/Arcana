@@ -3,12 +3,14 @@
 
     "item.arcana.band_of_starpower": "Band of Starpower",
 
-    "text.autoconfig.arcana.option.clientData": "Client",
-    "text.autoconfig.arcana.option.clientData.@Tooltip": "Client-Only Settings",
-    "text.autoconfig.arcana.option.clientData.toggleA": "toggleA",
-    "text.autoconfig.arcana.option.clientData.toggleB": "toggleB",
-    "text.autoconfig.arcana.option.clientData.factorA": "factorA",
+    "item.arcana.mana_item.info": "+%1$s Maximum Mana",
+
+    "text.autoconfig.arcana.option.clientData": "Client Options",
+    "text.autoconfig.arcana.option.clientData.soundVolume": "Sound Volume [NOT IMPLEMENTED]",
+    "text.autoconfig.arcana.option.clientData.soundVolume.@Tooltip": "Controls the sound volume of spells",
     "text.autoconfig.arcana.option.stuff": "Stuff",
     "text.autoconfig.arcana.option.stuff.a": "a",
-    "text.autoconfig.arcana.option.stuff.b": "b"
+    "text.autoconfig.arcana.option.stuff.b": "b",
+
+    "attribute.arcana.name.player.max_mana": "Mana"
 }

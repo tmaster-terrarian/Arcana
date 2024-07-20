@@ -10,22 +10,20 @@ import me.shedaniel.autoconfig.annotation.ConfigEntry;
 public class ArcanaConfig implements ConfigData
 {
     @ConfigEntry.Gui.CollapsibleObject(startExpanded = true)
-    @ConfigEntry.Gui.Tooltip()
     public ClientData clientData = new ClientData();
 
     public static class ClientData
     {
-        public boolean toggleA = true;
-        public boolean toggleB = false;
-
-        @ConfigEntry.BoundedDiscrete(max = 1)
-        public float factorA = 1f;
+        @ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+        @ConfigEntry.Gui.Tooltip
+        public int soundVolume = 100;
     }
 
     @ConfigEntry.Gui.CollapsibleObject
     InnerStuff stuff = new InnerStuff();
 
     @ConfigEntry.Gui.Excluded
+    @ConfigEntry.Gui.CollapsibleObject
     HiddenStuff invisibleStuff = new HiddenStuff();
 
     static class InnerStuff
