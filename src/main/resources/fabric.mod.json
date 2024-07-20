@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "arcana",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "Arcana",
   "description": "Just another spell casting mod",
   "authors": [
@@ -31,7 +31,7 @@
   "depends": {
     "nebula": ">=6.0.1",
     "fabricloader": ">=0.15.3",
-    "accessories": ">=1.0.0-beta.17",
+    "accessories": ">=1.0.0-beta.19",
     "fabric": "*",
     "minecraft": "1.21"
   }

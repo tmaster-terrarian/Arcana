@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.lwjgl.glfw.GLFW;
 
-import dev.bscit.arcana.ArcanaSpells;
+import dev.bscit.arcana.spell.SpellRegistry;
 
 import dev.louis.nebula.api.spell.SpellType;
 
@@ -37,7 +37,7 @@ public class ArcanaClient implements ClientModInitializer
             "key.categories.arcana"
         );
         KeyBindingHelper.registerKeyBinding(keyBind);
-        SpellKeybindManager.addSpellKeyBinding(ArcanaSpells.CLOUD_JUMP, keyBind);
+        SpellKeybindManager.addSpellKeyBinding(SpellRegistry.CLOUD_JUMP, keyBind);
     }
 
     private void registerKeybindCallback()
