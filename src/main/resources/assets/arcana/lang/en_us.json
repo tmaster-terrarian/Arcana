@@ -1,5 +1,14 @@
 {
     "itemGroup.arcana": "Arcana",
 
-    "item.arcana.band_of_starpower": "Band of Starpower"
+    "item.arcana.band_of_starpower": "Band of Starpower",
+
+    "text.autoconfig.arcana.option.clientData": "Client",
+    "text.autoconfig.arcana.option.clientData.@Tooltip": "Client-Only Settings",
+    "text.autoconfig.arcana.option.clientData.toggleA": "toggleA",
+    "text.autoconfig.arcana.option.clientData.toggleB": "toggleB",
+    "text.autoconfig.arcana.option.clientData.factorA": "factorA",
+    "text.autoconfig.arcana.option.stuff": "Stuff",
+    "text.autoconfig.arcana.option.stuff.a": "a",
+    "text.autoconfig.arcana.option.stuff.b": "b"
 }

@@ -23,6 +23,9 @@
     ],
     "registerSpellManager": [
       "dev.bscit.arcana.manager.ManagerRegisterer"
+    ],
+    "modmenu": [
+      "dev.bscit.arcana.compat.ModMenuEntry"
     ]
   },
   "mixins": [
@@ -33,6 +36,7 @@
     "fabricloader": ">=0.15.3",
     "accessories": ">=1.0.0-beta.19",
     "fabric": "*",
-    "minecraft": "1.21"
+    "minecraft": "1.21",
+    "cloth-config": ">=15.0.127"
   }
 }
