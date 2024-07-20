@@ -6,6 +6,7 @@ import dev.louis.nebula.api.spell.SpellType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 
 public class CloudJumpSpell extends Spell
@@ -19,7 +20,13 @@ public class CloudJumpSpell extends Spell
     public void cast()
     {
         var caster = this.getCaster();
-        caster.playSound(SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, 1f, 1f);
+        if(!caster.getWorld().isClient())
+        {
+            var serverPlayer = (ServerPlayerEntity)caster;
+
+            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.BLOCK_AMETHYST_BLOCK_BREAK, SoundCategory.PLAYERS);
+        }
+
         caster.addVelocity(0, 2, 0);
         caster.velocityModified = true;
     }
@@ -28,8 +35,7 @@ public class CloudJumpSpell extends Spell
     public void tick()
     {
         var caster = this.getCaster();
-        var world = caster.getWorld();
-        if(!world.isClient())
+        if(!caster.getWorld().isClient())
         {
             var serverPlayer = (ServerPlayerEntity)caster;
 
@@ -46,7 +52,8 @@ public class CloudJumpSpell extends Spell
                 0,
                 0.1
             );
-            caster.playSound(SoundEvents.BLOCK_GLASS_HIT, 2f, -1f);
+
+            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.BLOCK_GLASS_HIT, SoundCategory.PLAYERS, 1f, 1f);
         }
     }
 
@@ -64,7 +71,6 @@ public class CloudJumpSpell extends Spell
         {
             var serverPlayer = (ServerPlayerEntity)caster;
 
-            serverPlayer.playSound(SoundEvents.ENTITY_CAMEL_DASH, 2f, -1f);
             serverPlayer.getServerWorld().spawnParticles(
                 serverPlayer,
                 ParticleTypes.LARGE_SMOKE,
@@ -78,6 +84,8 @@ public class CloudJumpSpell extends Spell
                 0,
                 0.1
             );
+
+            serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.ENTITY_CAMEL_DASH, SoundCategory.PLAYERS, 1f, 1f);
         }
     }
 }

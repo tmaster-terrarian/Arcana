@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import dev.bscit.arcana.item.ItemRegistry;
+import dev.bscit.arcana.spell.SpellRegistry;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -18,7 +19,7 @@ public class Arcana implements ModInitializer
     public void onInitialize()
     {
         ItemRegistry.init();
-        ArcanaSpells.init();
+        SpellRegistry.init();
 
         registerManaRegenCallback();
 
