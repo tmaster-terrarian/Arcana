@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "arcana",
-  "version": "0.1.2",
+  "version": "${version}",
   "name": "Arcana",
   "description": "Just another spell casting mod",
   "authors": [
