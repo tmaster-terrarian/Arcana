@@ -7,7 +7,7 @@ public class ArcanaSpells
 {
     public static final SpellType<?> CLOUD_JUMP = SpellType.register(
         Arcana.of("cloud_jump"),
-        SpellType.Builder.create(CloudJumpSpell::new, 40)
+        SpellType.Builder.create(CloudJumpSpell::new, 5)
     );
 
     public static void init()

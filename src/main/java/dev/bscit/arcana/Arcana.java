@@ -62,19 +62,22 @@ public class Arcana implements ModInitializer
     {
         ServerTickEvents.END_WORLD_TICK.register(server -> {
             counter++;
-            if(counter == 20)
-            {
-                server.getPlayers().forEach((player) -> {
-                    if(player == null) return;
-                    if(player.isDead()) return;
-    
-                    var manaManager = player.getManaManager();
-                    if(manaManager == null) return;
-    
+            server.getPlayers().forEach((player) -> {
+                if(player == null) return;
+                if(player.isDead()) return;
+
+                var manaManager = player.getManaManager();
+                if(manaManager == null) return;
+
+                if(manaManager.getMana() > manaManager.getMaxMana())
+                    manaManager.setMana(manaManager.getMaxMana());
+
+                if(counter % 20 == 0)
+                {
                     if(manaManager.getMaxMana() > 0)
                         manaManager.addMana(1);
-                });
-            }
+                }
+            });
         });
     }
 }
