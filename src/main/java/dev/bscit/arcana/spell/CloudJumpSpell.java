@@ -27,7 +27,7 @@ public class CloudJumpSpell extends Spell
             serverPlayer.getServerWorld().playSound(null, serverPlayer.getBlockPos(), SoundEvents.ITEM_MACE_SMASH_GROUND, SoundCategory.PLAYERS);
         }
 
-        caster.addVelocity(0, 2, 0);
+        caster.addVelocity(0, 1.5, 0);
         caster.velocityModified = true;
     }
 
