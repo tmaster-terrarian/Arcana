@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -22,9 +23,9 @@ import net.minecraft.text.Text;
 
 public class ArcanaItems
 {
-    public static final ManaItem BAND_OF_STARPOWER_ITEM = register(
+    public static final Item BAND_OF_STARPOWER_ITEM = register(
         "band_of_starpower",
-        new ManaItem(new Item.Settings()
+        new Item(new Item.Settings()
             .maxCount(1)
             .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
             .component(
@@ -38,12 +39,39 @@ public class ArcanaItems
                 .addForSlot(
                     ArcanaAttributes.PLAYER_MAX_MANA,
                     new EntityAttributeModifier(
-                        Arcana.of("add_max_mana"),
+                        Arcana.of("accessory.max_mana"),
                         5,
                         EntityAttributeModifier.Operation.ADD_VALUE
                     ),
                     "wrist",
                     true)
+                .build()
+            )
+        )
+    );
+
+    public static final Item BAND_OF_LUCK_ITEM = register(
+        "band_of_luck",
+        new Item(new Item.Settings()
+            .maxCount(1)
+            .component(DataComponentTypes.ENCHANTMENT_GLINT_OVERRIDE, true)
+            .component(
+                AccessoriesDataComponents.SLOT_VALIDATION,
+                AccessorySlotValidationComponent.EMPTY
+                .addValidSlot("wrist")
+            )
+            .component(
+                AccessoriesDataComponents.ATTRIBUTES,
+                AccessoryItemAttributeModifiers.builder()
+                .addForSlot(
+                    EntityAttributes.GENERIC_LUCK,
+                    new EntityAttributeModifier(
+                        Arcana.of("accessory.luck"),
+                        12,
+                        EntityAttributeModifier.Operation.ADD_VALUE
+                    ),
+                    "wrist",
+                    false)
                 .build()
             )
         )
@@ -67,6 +95,7 @@ public class ArcanaItems
 
         ItemGroupEvents.modifyEntriesEvent(ARCANA_ITEM_GROUP_KEY).register(itemGroup -> {
             itemGroup.add(BAND_OF_STARPOWER_ITEM);
+            itemGroup.add(BAND_OF_LUCK_ITEM);
         });
     }
 }

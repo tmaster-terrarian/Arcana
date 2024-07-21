@@ -10,9 +10,9 @@ import net.minecraft.registry.Registry;
 
 public class ArcanaComponents
 {
-    public static final ComponentType<Integer> BONUS_MAX_MANA = Registry.register(
+    public static final ComponentType<Integer> MAX_MANA = Registry.register(
         Registries.DATA_COMPONENT_TYPE,
-        Arcana.of("bonus_max_mana"),
+        Arcana.of("max_mana"),
         ComponentType.<Integer>builder().codec(Codec.INT).build()
     );
 
